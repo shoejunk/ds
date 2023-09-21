@@ -64,6 +64,11 @@ namespace NStk::NDs
 			return m_aArr[i];
 		}
 
+		size_t Count() const
+		{
+			return m_uCount;
+		}
+
 	private:
 		array<T, N> m_aArr;
 		size_t m_uCount;
