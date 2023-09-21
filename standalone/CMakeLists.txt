@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14...3.22)
 
-project(TemplateStandalone LANGUAGES CXX)
+project(DsStandalone LANGUAGES CXX)
 
 # --- Import tools ----
 
@@ -16,14 +16,19 @@ CPMAddPackage(
   OPTIONS "CXXOPTS_BUILD_EXAMPLES NO" "CXXOPTS_BUILD_TESTS NO" "CXXOPTS_ENABLE_INSTALL YES"
 )
 
-CPMAddPackage(NAME Template SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/..)
+CPMAddPackage(NAME Ds SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/..)
 
+CPMAddPackage(
+	NAME log
+	GITHUB_REPOSITORY shoejunk/log
+	VERSION 0.5.0
+)
 # ---- Create standalone executable ----
 
 file(GLOB sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp)
 
 add_executable(${PROJECT_NAME} ${sources})
 
-set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 23 OUTPUT_NAME "Template")
+set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 23 OUTPUT_NAME "Ds")
 
-target_link_libraries(${PROJECT_NAME} Template::Template cxxopts)
+target_link_libraries(${PROJECT_NAME} Ds::Ds Log::Log cxxopts)
