@@ -10,10 +10,28 @@ int main()
 	aiVec.Append(5);
 	aiVec.Append(6);
 	aiVec.Append(7);
+
+	Log("Initial:\n");
+	for (auto& i : aiVec)
+	{
+		Log("%d\n", i);
+	}
+
 	aiVec.RemoveAtOrdered(0);
-	Log("%d, %d\n", aiVec[0], aiVec[1]);
+
+	Log("RemoveAtOrdered(0):\n");
+	for (auto& i : aiVec)
+	{
+		Log("%d\n", i);
+	}
+
 	aiVec.Append(8);
 	aiVec.RemoveAtUnordered(0);
-	Log("%d, %d\n", aiVec[0], aiVec[1]);
+	Log("Append(8); RemoveAtUnordered(0):\n");
+	for (auto& i : aiVec)
+	{
+		Log("%d\n", i);
+	}
+
 	return 0;
 }
