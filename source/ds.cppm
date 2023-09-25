@@ -4,50 +4,50 @@ import std.core;
 
 using namespace std;
 
-namespace NStk::NDs
+namespace stk::ds
 {
 	export 
 	template<class T, size_t N>
-	class TFixedVector
+	class fixed_vector
 	{
 	public:
-		TFixedVector<T, N>()
-			: m_uCount(0)
+		fixed_vector<T, N>()
+			: m_count(0)
 		{
 		}
 
-		bool Append(T const& koValue)
+		bool append(T const& val)
 		{
-			if (m_uCount < N)
+			if (m_count < N)
 			{
-				m_aArr[m_uCount++] = koValue;
+				m_arr[m_count++] = val;
 				return true;
 			}
 
 			return false;
 		}
 
-		bool RemoveAtOrdered(size_t i)
+		bool remove_at_ordered(size_t i)
 		{
-			if (i < m_uCount)
+			if (i < m_count)
 			{
-				for (size_t j = i; j < m_uCount - 1; ++j)
+				for (size_t j = i; j < m_count - 1; ++j)
 				{
-					m_aArr[j] = m_aArr[j + 1];
+					m_arr[j] = m_arr[j + 1];
 				}
 
-				--m_uCount;
+				--m_count;
 				return true;
 			}
 
 			return false;
 		}
 
-		bool RemoveAtUnordered(size_t i)
+		bool remove_at_unordered(size_t i)
 		{
-			if (i < m_uCount)
+			if (i < m_count)
 			{
-				m_aArr[i] = m_aArr[--m_uCount];
+				m_arr[i] = m_arr[--m_count];
 				return true;
 			}
 
@@ -56,17 +56,17 @@ namespace NStk::NDs
 
 		T const& operator[](size_t i) const
 		{
-			return m_aArr[i];
+			return m_arr[i];
 		}
 
 		T& operator[](size_t i)
 		{
-			return m_aArr[i];
+			return m_arr[i];
 		}
 
-		size_t Count() const
+		size_t count() const
 		{
-			return m_uCount;
+			return m_count;
 		}
 
 		class iterator {
@@ -136,16 +136,16 @@ namespace NStk::NDs
 			const T* ptr;
 		};
 
-		iterator begin() { return iterator(&m_aArr[0]); }
-		iterator end() { return iterator(&m_aArr[m_uCount]); }
+		iterator begin() { return iterator(&m_arr[0]); }
+		iterator end() { return iterator(&m_arr[m_count]); }
 
-		const_iterator begin() const { return const_iterator(&m_aArr[0]); }
-		const_iterator end() const { return const_iterator(&m_aArr[m_uCount]); }
-		const_iterator cbegin() const { return const_iterator(&m_aArr[0]); }
-		const_iterator cend() const { return const_iterator(&m_aArr[m_uCount]); }
+		const_iterator begin() const { return const_iterator(&m_arr[0]); }
+		const_iterator end() const { return const_iterator(&m_arr[m_count]); }
+		const_iterator cbegin() const { return const_iterator(&m_arr[0]); }
+		const_iterator cend() const { return const_iterator(&m_arr[m_count]); }
 
 	private:
-		array<T, N> m_aArr;
-		size_t m_uCount;
+		array<T, N> m_arr;
+		size_t m_count;
 	};
 }

@@ -1,34 +1,34 @@
 import stk.ds;
 import stk.log;
 
-using namespace NStk::NDs;
+using namespace stk::ds;
 using namespace NStk::NLog;
 
 int main()
 {
-	TFixedVector<int, 10> aiVec;
-	aiVec.Append(5);
-	aiVec.Append(6);
-	aiVec.Append(7);
+	fixed_vector<int, 10> vec;
+	vec.append(5);
+	vec.append(6);
+	vec.append(7);
 
 	Log("Initial:\n");
-	for (auto& i : aiVec)
+	for (auto& i : vec)
 	{
 		Log("%d\n", i);
 	}
 
-	aiVec.RemoveAtOrdered(0);
+	vec.remove_at_ordered(0);
 
-	Log("RemoveAtOrdered(0):\n");
-	for (auto& i : aiVec)
+	Log("remove_at_ordered(0):\n");
+	for (auto& i : vec)
 	{
 		Log("%d\n", i);
 	}
 
-	aiVec.Append(8);
-	aiVec.RemoveAtUnordered(0);
-	Log("Append(8); RemoveAtUnordered(0):\n");
-	for (auto& i : aiVec)
+	vec.append(8);
+	vec.remove_at_unordered(0);
+	Log("append(8); remove_at_unordered(0):\n");
+	for (auto& i : vec)
 	{
 		Log("%d\n", i);
 	}
