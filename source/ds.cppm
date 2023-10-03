@@ -44,6 +44,7 @@ namespace stk::ds
 		{
 			if (i < m_count)
 			{
+				m_arr[i].~T();
 				for (size_t j = i; j < m_count - 1; ++j)
 				{
 					m_arr[j] = m_arr[j + 1];
@@ -60,6 +61,7 @@ namespace stk::ds
 		{
 			if (i < m_count)
 			{
+				m_arr[i].~T();
 				m_arr[i] = m_arr[--m_count];
 				return true;
 			}
