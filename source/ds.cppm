@@ -27,6 +27,19 @@ namespace stk::ds
 			return false;
 		}
 
+		template<class... Args>
+		bool emplace(Args&&... args)
+		{
+			if (m_count < N)
+			{
+				m_arr[m_count++] = T(std::forward<Args>(args)...);
+				return true;
+			}
+
+			return false;
+		}
+
+
 		bool remove_at_ordered(size_t i)
 		{
 			if (i < m_count)

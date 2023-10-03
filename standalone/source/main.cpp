@@ -10,6 +10,7 @@ int main()
 	vec.append(5);
 	vec.append(6);
 	vec.append(7);
+	vec.emplace(3);
 
 	Log("Initial:\n");
 	for (auto& i : vec)
