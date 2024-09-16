@@ -1,37 +1,36 @@
 import stk.ds;
 import stk.log;
 
-using namespace stk::ds;
-using namespace NStk::NLog;
+using namespace stk;
 
 int main()
 {
-	fixed_vector<int, 10> vec;
+	c_fixed_vector<int, 10> vec;
 	vec.append(5);
 	vec.append(6);
 	vec.append(7);
 	vec.emplace(3);
 
-	Log("Initial:\n");
+	debugln("Initial:");
 	for (auto& i : vec)
 	{
-		Log("%d\n", i);
+		debugln("{}", i);
 	}
 
 	vec.remove_at_ordered(0);
 
-	Log("remove_at_ordered(0):\n");
+	debugln("remove_at_ordered(0):");
 	for (auto& i : vec)
 	{
-		Log("%d\n", i);
+		debugln("{}", i);
 	}
 
 	vec.append(8);
 	vec.remove_at_unordered(0);
-	Log("append(8); remove_at_unordered(0):\n");
+	debugln("append(8); remove_at_unordered(0):");
 	for (auto& i : vec)
 	{
-		Log("%d\n", i);
+		debugln("{}", i);
 	}
 
 	return 0;

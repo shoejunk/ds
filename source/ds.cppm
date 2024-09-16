@@ -1,17 +1,15 @@
 export module stk.ds;
 
-import std.core;
+import std;
 
-using namespace std;
-
-namespace stk::ds
+namespace stk
 {
-	export 
-	template<class T, size_t N>
-	class fixed_vector
+	export
+		template<class T, size_t N>
+	class c_fixed_vector
 	{
 	public:
-		fixed_vector<T, N>()
+		c_fixed_vector<T, N>()
 			: m_count(0)
 		{
 		}
@@ -160,7 +158,7 @@ namespace stk::ds
 		const_iterator cend() const { return const_iterator(&m_arr[m_count]); }
 
 	private:
-		array<T, N> m_arr;
+		std::array<T, N> m_arr;
 		size_t m_count;
 	};
 }
