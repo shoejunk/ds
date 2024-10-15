@@ -1,6 +1,6 @@
 export module stk.ds;
 
-import std;
+import se;
 
 namespace stk
 {
@@ -84,9 +84,9 @@ namespace stk
 
 		class iterator {
 		public:
-			using iterator_category = std::forward_iterator_tag;
+			using iterator_category = se::forward_iterator_tag;
 			using value_type = T;
-			using difference_type = std::ptrdiff_t;
+			using difference_type = se::ptrdiff_t;
 			using pointer = T*;
 			using reference = T&;
 
@@ -118,9 +118,9 @@ namespace stk
 		class const_iterator
 		{
 		public:
-			using iterator_category = std::forward_iterator_tag;
+			using iterator_category = se::forward_iterator_tag;
 			using value_type = T;
-			using difference_type = std::ptrdiff_t;
+			using difference_type = se::ptrdiff_t;
 			using pointer = const T*;
 			using reference = const T&;
 
@@ -158,7 +158,7 @@ namespace stk
 		const_iterator cend() const { return const_iterator(&m_arr[m_count]); }
 
 	private:
-		std::array<T, N> m_arr;
+		se::array<T, N> m_arr;
 		size_t m_count;
 	};
 }
