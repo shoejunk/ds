@@ -30,7 +30,7 @@ namespace stk
 		{
 			if (m_count < N)
 			{
-				m_arr[m_count++] = T(std::forward<Args>(args)...);
+				m_arr[m_count++] = T(se::forward<Args>(args)...);
 				return true;
 			}
 
